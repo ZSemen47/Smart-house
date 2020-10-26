@@ -22,17 +22,19 @@ public class Conditioner {
         return currentTemperature;
     }
 
-    public void increaseCurrentTemperature() {
-        if (currentTemperature == maxTemperature) {
-            return;
+    public int increaseCurrentTemperature() {
+        if (currentTemperature >= maxTemperature) {
+            currentTemperature = maxTemperature;
+            return currentTemperature;
         }
-        this.currentTemperature++;
+        return this.currentTemperature++;
     }
 
-    public void decreaseCurrentTemperature() {
-        if (currentTemperature == minTemperature) {
-            return;
+    public int decreaseCurrentTemperature() {
+        if (currentTemperature <= minTemperature) {
+            currentTemperature = minTemperature;
+            return currentTemperature;
         }
-        this.currentTemperature--;
+        return this.currentTemperature--;
     }
 }

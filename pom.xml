@@ -72,7 +72,11 @@
                             </limits>
                         </rule>
                         <rule>
-                            <element>PACKAGE</element>
+                            <element>METHOD</element>
+                            <includes>
+                                <include>nextStation</include>
+                                <include>prevStation</include>
+                            </includes>
                             <limits>
                                 <limit>
                                     <counter>COMPLEXITY</counter>

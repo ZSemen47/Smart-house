@@ -72,11 +72,6 @@
                             </limits>
                         </rule>
                         <rule>
-                            <element>METHOD</element>
-                            <includes>
-                                <include>nextStation</include>
-                                <include>prevStation</include>
-                            </includes>
                             <limits>
                                 <limit>
                                     <counter>COMPLEXITY</counter>

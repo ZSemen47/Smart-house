@@ -1,28 +1,14 @@
 package ru.netology;
 
 public class Radio {
-    private int currentStationNumber;
-    private int maxCurrentStation;
-    private int minCurrentStation;
+    private int currentStationNumber = 10;
+    private int maxCurrentStation = 10;
+    private int minCurrentStation = 0;
     private int soundVolume;
-    private int maxSoundVolume;
-    private int minSoundVolume;
+    private int maxSoundVolume = 100;
+    private int minSoundVolume = 0;
 
-    public int getCurrentStationNumber() {
-        return currentStationNumber;
-    }
-    public void setCurrentStationNumber(int currentStationNumber) {
-        this.currentStationNumber = currentStationNumber;
-    }
-
-    public void setMaxCurrentStation(int maxCurrentStation) {
-        this.maxCurrentStation = maxCurrentStation;
-    }
-
-    public void setMinCurrentStation(int minCurrentStation) {
-        this.minCurrentStation = minCurrentStation;
-    }
-
+    // Methods for radioStation
     public int nextStation() {
         if (currentStationNumber == maxCurrentStation) {
             currentStationNumber = minCurrentStation;
@@ -42,22 +28,8 @@ public class Radio {
         return currentStationNumber;
     }
 
-    public int getSoundVolume() {
-        return soundVolume;
-    }
 
-    public void setSoundVolume(int soundVolume) {
-        this.soundVolume = soundVolume;
-    }
-
-    public void setMaxSoundVolume(int maxSoundVolume) {
-        this.maxSoundVolume = maxSoundVolume;
-    }
-
-    public void setMinSoundVolume(int minSoundVolume) {
-        this.minSoundVolume = minSoundVolume;
-    }
-
+    // Methods for Volume
     public void increaseSoundVolume() {
         if (soundVolume == maxSoundVolume) {
             return;
@@ -70,4 +42,33 @@ public class Radio {
         }
         this.soundVolume --;
     }
+
+    // Getters + Setters
+    public int getMinSoundVolume() {
+        return minSoundVolume;
+    }
+    public int getMaxSoundVolume() {
+        return maxSoundVolume;
+    }
+    public int getMinCurrentStation() {
+        return minCurrentStation;
+    }
+    public int getMaxCurrentStation() {
+        return maxCurrentStation;
+    }
+    public int getCurrentStationNumber() {
+        return currentStationNumber;
+    }
+    public void setCurrentStationNumber(int currentStationNumber) {
+        this.currentStationNumber = currentStationNumber;
+    }
+
+    public int getSoundVolume() {
+        return soundVolume;
+    }
+
+    public void setSoundVolume(int soundVolume) {
+        this.soundVolume = soundVolume;
+    }
+
 }

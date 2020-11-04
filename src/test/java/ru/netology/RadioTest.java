@@ -44,6 +44,7 @@ public class RadioTest {
         radio.prevStation();
         assertEquals(10, radio.getCurrentStationNumber());
     }
+
     @Test
     public void switchStation() {
         radio.setCurrentStationNumber(5);
@@ -51,24 +52,29 @@ public class RadioTest {
         assertEquals(5, radio.getCurrentStationNumber());
     }
 
+
+
     @Test
     public void increaseSound() {
         radio.setSoundVolume(99);
         radio.increaseSoundVolume();
         assertEquals(100, radio.getSoundVolume());
     }
+
     @Test
     public void increaseSoundMoreLimit() {
         radio.setSoundVolume(100);
         radio.increaseSoundVolume();
         assertEquals(100, radio.getSoundVolume());
     }
+
     @Test
     public void decreaseSound() {
         radio.setSoundVolume(1);
         radio.decreaseSoundVolume();
         assertEquals(0, radio.getSoundVolume());
     }
+
     @Test
     public void decreaseSoundLessLimit() {
         radio.setSoundVolume(0);

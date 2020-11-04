@@ -26,7 +26,8 @@ public class RadioTest {
 
     @Test
     public void nextStationMoreLimit() {
-        radio.setCurrentStationNumber(10);;
+        radio.setCurrentStationNumber(10);
+        ;
         radio.nextStation();
         assertEquals(0, radio.getCurrentStationNumber());
     }
@@ -44,12 +45,7 @@ public class RadioTest {
         radio.prevStation();
         assertEquals(10, radio.getCurrentStationNumber());
     }
-    @Test
-    public void switchStation() {
-        radio.setCurrentStationNumber(5);
-        radio.switchStation();
-        assertEquals(5, radio.getCurrentStationNumber());
-    }
+
 
     @Test
     public void increaseSound() {
@@ -57,18 +53,21 @@ public class RadioTest {
         radio.increaseSoundVolume();
         assertEquals(100, radio.getSoundVolume());
     }
+
     @Test
     public void increaseSoundMoreLimit() {
         radio.setSoundVolume(100);
         radio.increaseSoundVolume();
         assertEquals(100, radio.getSoundVolume());
     }
+
     @Test
     public void decreaseSound() {
         radio.setSoundVolume(1);
         radio.decreaseSoundVolume();
         assertEquals(0, radio.getSoundVolume());
     }
+
     @Test
     public void decreaseSoundLessLimit() {
         radio.setSoundVolume(0);

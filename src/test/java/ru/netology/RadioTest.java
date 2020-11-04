@@ -46,7 +46,6 @@ public class RadioTest {
         assertEquals(10, radio.getCurrentStationNumber());
     }
 
-
     @Test
     public void increaseSound() {
         radio.setSoundVolume(99);

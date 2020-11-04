@@ -6,82 +6,70 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RadioTest {
+    Radio radio = new Radio();
+
+    @Test
+    public void shouldInitFields() {
+        assertEquals(10, radio.getCurrentStationNumber());
+        assertEquals(10, radio.getMaxCurrentStation());
+        assertEquals(0, radio.getMinCurrentStation());
+        assertEquals(100, radio.getMaxSoundVolume());
+        assertEquals(0, radio.getMinSoundVolume());
+    }
+
     @Test
     public void nextStation() {
-        Radio radio = new Radio();
         radio.setCurrentStationNumber(9);
-        radio.setMaxCurrentStation(9);
-        radio.setMinCurrentStation(1);
         radio.nextStation();
-        assertEquals(1, radio.getCurrentStationNumber());
+        assertEquals(10, radio.getCurrentStationNumber());
     }
 
     @Test
     public void nextStationMoreLimit() {
-        Radio radio = new Radio();
-        radio.setCurrentStationNumber(5);
-        radio.setMaxCurrentStation(9);
-        radio.setMinCurrentStation(1);
+        radio.setCurrentStationNumber(10);
+        ;
         radio.nextStation();
-        assertEquals(6, radio.getCurrentStationNumber());
+        assertEquals(0, radio.getCurrentStationNumber());
     }
 
     @Test
     public void prevStation() {
-        Radio radio = new Radio();
         radio.setCurrentStationNumber(6);
-        radio.setMaxCurrentStation(9);
-        radio.setMinCurrentStation(1);
         radio.prevStation();
         assertEquals(5, radio.getCurrentStationNumber());
     }
 
     @Test
     public void prevStationLessLimit() {
-        Radio radio = new Radio();
-        radio.setCurrentStationNumber(1);
-        radio.setMaxCurrentStation(9);
-        radio.setMinCurrentStation(1);
+        radio.setCurrentStationNumber(0);
         radio.prevStation();
-        assertEquals(9, radio.getCurrentStationNumber());
+        assertEquals(10, radio.getCurrentStationNumber());
     }
 
     @Test
     public void increaseSound() {
-        Radio radio = new Radio();
-        radio.setSoundVolume(5);
-        radio.setMaxSoundVolume(10);
-        radio.setMinSoundVolume(0);
+        radio.setSoundVolume(99);
         radio.increaseSoundVolume();
-        assertEquals(6, radio.getSoundVolume());
+        assertEquals(100, radio.getSoundVolume());
     }
 
     @Test
     public void increaseSoundMoreLimit() {
-        Radio radio = new Radio();
-        radio.setSoundVolume(10);
-        radio.setMaxSoundVolume(10);
-        radio.setMinSoundVolume(0);
+        radio.setSoundVolume(100);
         radio.increaseSoundVolume();
-        assertEquals(10, radio.getSoundVolume());
+        assertEquals(100, radio.getSoundVolume());
     }
 
     @Test
     public void decreaseSound() {
-        Radio radio = new Radio();
-        radio.setSoundVolume(5);
-        radio.setMaxSoundVolume(10);
-        radio.setMinSoundVolume(0);
+        radio.setSoundVolume(1);
         radio.decreaseSoundVolume();
-        assertEquals(4, radio.getSoundVolume());
+        assertEquals(0, radio.getSoundVolume());
     }
 
     @Test
     public void decreaseSoundLessLimit() {
-        Radio radio = new Radio();
         radio.setSoundVolume(0);
-        radio.setMaxSoundVolume(10);
-        radio.setMinSoundVolume(0);
         radio.decreaseSoundVolume();
         assertEquals(0, radio.getSoundVolume());
     }
